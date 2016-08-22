@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+#footer .links {display:none;}
+#footer .copyright {clear:both; text-align:left; background:none;}
+#footer .copyright:before {content:"."; height:0px; visibility:hidden; display:block; clear:both;}
+
+#header {border:0px;}
+#header .banner_row,#header #main_nav,#header .logo_bar .lang_switch {display:none;}
+#header .logo_bar {background:none; display:block; width:auto; border:0px}
+#header .logo_bar .AM_logo img{display:block;}
+#header #breadcrumb {display:block; background:none;}
+
+table thead th, table th { background:#fff none; !important; color:#000000 !important;}
+
+.mod .hd, .mod_tbl .ctnr_table thead th  {
+	background:none #fff !important;
+	border-top: #ccc solid 1px !important;
+	border-bottom: #ccc solid 1px !important;
+}
+.ctnr_table thead th h2 a { background:#FFFFFF !important; color:#000000 !important;}
+
+.mod .hd h2 { background:#FFFFFF !important; color:#000000 !important; }
+
+.shadow690px{border-top: #ccc solid 1px !important; background:none; height:1px; font-size:1px; line-height:1px; width:690px; zoom:1;}
+.shadow600px{border-top: #ccc solid 1px !important; background:none; height:1px; font-size:1px; line-height:1px; width:602px; zoom:1;}
+.shadow345px{border-top: #ccc solid 1px !important; background:none; height:1px; font-size:1px; line-height:1px;}
+.shadow230px{border-top: #ccc solid 1px !important; background:none; height:1px; font-size:1px; line-height:1px;}
+
+
+/* for home page */
+#ctnMid {clear:both; float:none; *height:600px !important; }
+#ctnSidebar {clear:both !important; float:none !important;}
+#ctnLeft .bd, #ctnMid #mod_redeemCal .bd, #ctnMid #mod_earnCal .bd, 
+#ctnSidebar #mod_srvdsk .bd , #ctnSidebar #tool_mbrBenefits .bd { min-height:260px !important; *height:250px !important; *margin-top:-1px !important;}
+.column_end { background:none !important; border-top:#ccc solid 1px !important;}
+.print_show { display:block !important; }
+.print_hide { display:none !important; }
+
+/* Personal Homepage Detail */
+#mod_personal_detail_printonly { display:inline;} 

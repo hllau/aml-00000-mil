@@ -1,0 +1,2 @@
+C:\workspace\sdk\apache-maven-3.3.9\bin\mvn install:install-file -Dfile=clsUtil.jar -DgroupId=com.cathaypacific.icls -DartifactId=clsUtil -Dversion=1.0.0 -Dpackaging=jar
+C:\workspace\sdk\apache-maven-3.3.9\bin\mvn install:install-file -Dfile=common-logger.jar -DgroupId=com.cathaypacific.icls -DartifactId=common-logger -Dversion=2014.10.24 -Dpackaging=jar

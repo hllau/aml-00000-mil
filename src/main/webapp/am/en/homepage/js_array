@@ -1,0 +1,1104 @@
+
+
+
+
+
+
+
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+/* Earn Mileage Cal Carrier List */
+var earnMCCarrier = new Array();
+
+
+
+
+earnMCCarrier[earnMCCarrier.length]  = new Array('Aer Lingus','EIN');
+earnMCCarrier[earnMCCarrier.length]  = new Array('Air China  ','CCA');
+earnMCCarrier[earnMCCarrier.length]  = new Array('Air New Zealand','ANZ');
+earnMCCarrier[earnMCCarrier.length]  = new Array('Alaska Airlines','ASA');
+earnMCCarrier[earnMCCarrier.length]  = new Array('American Airlines','AAL');
+earnMCCarrier[earnMCCarrier.length]  = new Array('Bangkok Airways','BKP');
+earnMCCarrier[earnMCCarrier.length]  = new Array('British Airways','BAW');
+earnMCCarrier[earnMCCarrier.length]  = new Array('Cathay Pacific Airways','CPA');
+earnMCCarrier[earnMCCarrier.length]  = new Array('Dragonair','HDA');
+earnMCCarrier[earnMCCarrier.length]  = new Array('Finnair','FIN');
+earnMCCarrier[earnMCCarrier.length]  = new Array('Gulf Air','GFA');
+earnMCCarrier[earnMCCarrier.length]  = new Array('Iberia','IBE');
+earnMCCarrier[earnMCCarrier.length]  = new Array('Iberia Express','IBS');
+earnMCCarrier[earnMCCarrier.length]  = new Array('Japan Airlines','JAL');
+earnMCCarrier[earnMCCarrier.length]  = new Array('Japan Transocean Air Co. Ltd  ','JTA');
+earnMCCarrier[earnMCCarrier.length]  = new Array('Jet Airways','JAI');
+earnMCCarrier[earnMCCarrier.length]  = new Array('LAN','LAN');
+earnMCCarrier[earnMCCarrier.length]  = new Array('LAN Argentina','4MM');
+earnMCCarrier[earnMCCarrier.length]  = new Array('Lan Ecuador','LNE');
+earnMCCarrier[earnMCCarrier.length]  = new Array('Lan Peru','LPE');
+earnMCCarrier[earnMCCarrier.length]  = new Array('Malaysia Airlines','MAS');
+earnMCCarrier[earnMCCarrier.length]  = new Array('NIKI','NLY');
+earnMCCarrier[earnMCCarrier.length]  = new Array('Qantas','QFA');
+earnMCCarrier[earnMCCarrier.length]  = new Array('Qatar Airways','QTR');
+earnMCCarrier[earnMCCarrier.length]  = new Array('Royal Brunei Airlines','RBA');
+earnMCCarrier[earnMCCarrier.length]  = new Array('Royal Jordanian Airlines  ','RJA');
+earnMCCarrier[earnMCCarrier.length]  = new Array('S7 Airlines','SBI');
+earnMCCarrier[earnMCCarrier.length]  = new Array('SriLankan Airlines','ALK');
+earnMCCarrier[earnMCCarrier.length]  = new Array('TAM Airlines','TAM');
+earnMCCarrier[earnMCCarrier.length]  = new Array('Trans States Airlines','LOF');
+earnMCCarrier[earnMCCarrier.length]  = new Array('airberlin','BER');
+
+//CPPPEP UPDATE FOR AML.31473 20140523 START
+//var mc_roundTripInd  = "|0|3|4|5|";
+var mc_roundTripInd  = "|0|5|6|7|8|";
+//CPPPEP UPDATE FOR AML.31473 20140606 END
+var mcTicketClass = new Array();
+mcTicketClass[mcTicketClass.length] = new Array('First','Business');
+mcTicketClass[mcTicketClass.length] = new Array('First','Business','Premium Economy','Economy');
+//CPPPEP UPDATE FOR AML.31473 20140523 START
+//mcTicketClass[mcTicketClass.length] = new Array('From Economy To Premium Econ','From Economy To Business','From Premium Econ to Business','From Business to First');
+//mcTicketClass[mcTicketClass.length] = new Array('First','Business','Premium Economy','Economy');
+//mcTicketClass[mcTicketClass.length] = new Array('From Economy to Premium Econ','From Economy To Business','From Premium Econ to Business','From Business to First');
+//mcTicketClass[mcTicketClass.length] = new Array('Economy');
+//mcTicketClass[mcTicketClass.length] = new Array('Economy');
+//CPPKELC UPDATE FOR AML.31473 20141006 START Remove Business and first
+mcTicketClass[mcTicketClass.length] = new Array('Premium Economy','Economy');
+mcTicketClass[mcTicketClass.length] = new Array('Premium Economy','Economy');
+mcTicketClass[mcTicketClass.length] = new Array('From Economy To Premium Econ','From Economy To Business','From Premium Econ to Business','From Business to First');
+mcTicketClass[mcTicketClass.length] = new Array('First','Business','Premium Economy','Economy');
+mcTicketClass[mcTicketClass.length] = new Array('Premium Economy','Economy');
+mcTicketClass[mcTicketClass.length] = new Array('Premium Economy','Economy');
+//CPPKELC UPDATE FOR AML.31473 20141006 END
+mcTicketClass[mcTicketClass.length] = new Array('From Economy to Premium Econ','From Economy To Business','From Premium Econ to Business','From Business to First');
+//CPPPEP UPDATE FOR AML.31473 20140606 END
+var mcAwardClass = new Array();
+mcAwardClass[mcAwardClass.length] = new Array("FCC","BCB");
+mcAwardClass[mcAwardClass.length] = new Array("OWFC","OWBC","OWPEC","OWEC");
+
+/* IMTMKC PEY LE - 20120821 - added OWUYP & OWUPC */
+//CPPPEP UPDATE FOR AML.31473 20140523 START 
+//mcAwardClass[mcAwardClass.length] = new Array("OWUYP","OWUC","OWUPC","OWUF");
+//mcAwardClass[mcAwardClass.length] = new Array("RTFC","RTBC","RTPEC","RTEC");
+//mcAwardClass[mcAwardClass.length] = new Array("UGYP","UGEC","UGPC","UGCF");
+//mcAwardClass[mcAwardClass.length] = new Array("PEC");
+//mcAwardClass[mcAwardClass.length] = new Array("OPEC");
+//CPPKELC UPDATE FOR AML.31473 20141006 START Remove Business and first
+mcAwardClass[mcAwardClass.length] = new Array("OWPPT1","OWEPT1");
+mcAwardClass[mcAwardClass.length] = new Array("OWPPT2","OWEPT2");
+mcAwardClass[mcAwardClass.length] = new Array("OWUYP","OWUC","OWUPC","OWUF");
+mcAwardClass[mcAwardClass.length] = new Array("RTFC","RTBC","RTPEC","RTEC");
+mcAwardClass[mcAwardClass.length] = new Array("RTPPT1","RTEPT1");
+mcAwardClass[mcAwardClass.length] = new Array("RTPPT2","RTEPT2");
+//CPPKELC UPDATE FOR AML.31473 20141006 END
+mcAwardClass[mcAwardClass.length] = new Array("UGYP","UGEC","UGPC","UGCF");
+//CPPPEP UPDATE FOR AML.31473 20140523 END
+
+var mArr = new Array();
+mArr[0] = new Array('Any Miles', '');
+mArr[1] = new Array('0 - 9,999 miles', '0_9999');
+mArr[2] = new Array('10,000 - 19,999 miles', '10000_19999');
+mArr[3] = new Array('20,000 - 29,999 miles', '20000_29999');
+mArr[4] = new Array('30,000 - 39,999 miles', '30000_39999');
+mArr[5] = new Array('40,000 - 49,999 miles', '40000_49999');
+mArr[6] = new Array('50,000 - 59,999 miles', '50000_59999');
+mArr[7] = new Array('60,000 - 69,999 miles', '60000_69999');
+mArr[8] = new Array('70,000 - 79,999 miles', '70000_79999');
+mArr[9] = new Array('80,000 - 89,999 miles', '80000_89999');
+mArr[10] = new Array('90,000 - 99,999 miles', '90000_99999');
+mArr[11] = new Array('100,000 miles or above', '100000');
+
+var cArr = new Array();
+cArr[0] = new Array('All Award Categories', '');
+/*
+
+
+
+
+
+
+
+*/
+cArr[1] = new Array('Miles Conversion', 'CONVERSION')
+
+
+	
+
+var cRArr = new Array();
+cRArr[0] = new Array('All countries / regions', '');
+/*
+
+
+
+
+
+
+
+
+
+
+
+Generated : Wed Aug 17 02:09:20 GMT+08:00 2016
+*/
+cRArr[1] = new Array('-----------------------', '')
+cRArr[2] = new Array('Hong Kong', 'HK')
+cRArr[3] = new Array('Canada', 'CA')
+cRArr[4] = new Array('China', 'CN')
+cRArr[5] = new Array('Taiwan', 'TW')
+cRArr[6] = new Array('United States', 'US')
+cRArr[7] = new Array('--- Africa ---', 'AFRICA')
+cRArr[8] = new Array('Cameroon', 'CM')
+cRArr[9] = new Array('Congo', 'CG')
+cRArr[10] = new Array('Gabon', 'GA')
+cRArr[11] = new Array('South Africa', 'ZA')
+cRArr[12] = new Array('Togo', 'TG')
+cRArr[13] = new Array('Tunisia', 'TN')
+cRArr[14] = new Array('--- Asia Pacific ---', 'ASIA_PAC')
+cRArr[15] = new Array('Australia', 'AU')
+cRArr[16] = new Array('Bangladesh', 'BD')
+cRArr[17] = new Array('Brunei', 'BN')
+cRArr[18] = new Array('Cambodia', 'KH')
+cRArr[19] = new Array('China', 'CN')
+cRArr[20] = new Array('Hong Kong', 'HK')
+cRArr[21] = new Array('India', 'IN')
+cRArr[22] = new Array('Indonesia', 'ID')
+cRArr[23] = new Array('Japan', 'JP')
+cRArr[24] = new Array('Korea, Democratic People\'s Rep', 'KP')
+cRArr[25] = new Array('Korea, Republic Of', 'KR')
+cRArr[26] = new Array('Lao People\'S Democratic Republ', 'LA')
+cRArr[27] = new Array('Macau', 'MO')
+cRArr[28] = new Array('Malaysia', 'MY')
+cRArr[29] = new Array('New Zealand', 'NZ')
+cRArr[30] = new Array('Pakistan', 'PK')
+cRArr[31] = new Array('Philippines', 'PH')
+cRArr[32] = new Array('Singapore', 'SG')
+cRArr[33] = new Array('Sri Lanka', 'LK')
+cRArr[34] = new Array('Taiwan', 'TW')
+cRArr[35] = new Array('Thailand', 'TH')
+cRArr[36] = new Array('Vietnam', 'VN')
+cRArr[37] = new Array('--- Europe ---', 'EUROPE')
+cRArr[38] = new Array('Austria', 'AT')
+cRArr[39] = new Array('Belgium', 'BE')
+cRArr[40] = new Array('Bulgaria', 'BG')
+cRArr[41] = new Array('Croatia', 'HR')
+cRArr[42] = new Array('Czech Republic', 'CZ')
+cRArr[43] = new Array('Denmark', 'DK')
+cRArr[44] = new Array('Finland', 'FI')
+cRArr[45] = new Array('France', 'FR')
+cRArr[46] = new Array('Georgia', 'GE')
+cRArr[47] = new Array('Germany', 'DE')
+cRArr[48] = new Array('Greece', 'GR')
+cRArr[49] = new Array('Hungary', 'HU')
+cRArr[50] = new Array('Ireland', 'IE')
+cRArr[51] = new Array('Italy', 'IT')
+cRArr[52] = new Array('Luxembourg', 'LU')
+cRArr[53] = new Array('Macedonia, The Former Yugoslav', 'MK')
+cRArr[54] = new Array('Netherlands', 'NL')
+cRArr[55] = new Array('Poland', 'PL')
+cRArr[56] = new Array('Portugal', 'PT')
+cRArr[57] = new Array('Romania', 'RO')
+cRArr[58] = new Array('Russia', 'RU')
+cRArr[59] = new Array('Spain', 'ES')
+cRArr[60] = new Array('Sweden', 'SE')
+cRArr[61] = new Array('Switzerland', 'CH')
+cRArr[62] = new Array('Turkey', 'TR')
+cRArr[63] = new Array('United Kingdom', 'GB')
+cRArr[64] = new Array('Yugoslavia', 'YU')
+cRArr[65] = new Array('--- Middle East ---', 'MID_EAST')
+cRArr[66] = new Array('Afghanistan', 'AF')
+cRArr[67] = new Array('Egypt', 'EG')
+cRArr[68] = new Array('Iran (Islamic Republic Of)', 'IR')
+cRArr[69] = new Array('Iraq', 'IQ')
+cRArr[70] = new Array('Israel', 'IL')
+cRArr[71] = new Array('Jordan', 'JO')
+cRArr[72] = new Array('Kuwait', 'KW')
+cRArr[73] = new Array('Lebanon', 'LB')
+cRArr[74] = new Array('Qatar', 'QA')
+cRArr[75] = new Array('Saudi Arabia', 'SA')
+cRArr[76] = new Array('United Arab Emirates', 'AE')
+cRArr[77] = new Array('--- North America ---', 'N_AMERICA')
+cRArr[78] = new Array('Canada', 'CA')
+cRArr[79] = new Array('United States', 'US')
+cRArr[80] = new Array('--- South America ---', 'S_AMERICA')
+cRArr[81] = new Array('Argentina', 'AR')
+cRArr[82] = new Array('Brazil', 'BR')
+cRArr[83] = new Array('Cayman Islands', 'KY')
+cRArr[84] = new Array('Chile', 'CL')
+cRArr[85] = new Array('Colombia', 'CO')
+cRArr[86] = new Array('Costa Rica', 'CR')
+cRArr[87] = new Array('Cuba', 'CU')
+cRArr[88] = new Array('Dominican Republic', 'DO')
+cRArr[89] = new Array('Ecuador', 'EC')
+cRArr[90] = new Array('Guatemala', 'GT')
+cRArr[91] = new Array('Jamaica', 'JM')
+cRArr[92] = new Array('Mexico', 'MX')
+cRArr[93] = new Array('Netherlands Antilles', 'AN')
+cRArr[94] = new Array('Panama', 'PA')
+cRArr[95] = new Array('Paraguay', 'PY')
+cRArr[96] = new Array('Peru', 'PE')
+cRArr[97] = new Array('Puerto Rico', 'PR')
+cRArr[98] = new Array('Trinidad And Tobago', 'TT')
+cRArr[99] = new Array('Venezuela', 'VE')
+cRArr[100] = new Array('--- Other ---', 'OTHERS')
+cRArr[101] = new Array('Albania', 'AL')
+cRArr[102] = new Array('Algeria', 'DZ')
+cRArr[103] = new Array('American Samoa', 'AS')
+cRArr[104] = new Array('Andorra', 'AD')
+cRArr[105] = new Array('Angola', 'AO')
+cRArr[106] = new Array('Anguilla', 'AI')
+cRArr[107] = new Array('Antarctica', 'AQ')
+cRArr[108] = new Array('Antigua And Barbuda', 'AG')
+cRArr[109] = new Array('Armenia', 'AM')
+cRArr[110] = new Array('Aruba', 'AW')
+cRArr[111] = new Array('Azerbaijan', 'AZ')
+cRArr[112] = new Array('Bahamas', 'BS')
+cRArr[113] = new Array('Bahrain', 'BH')
+cRArr[114] = new Array('Barbados', 'BB')
+cRArr[115] = new Array('Belarus', 'BY')
+cRArr[116] = new Array('Belize', 'BZ')
+cRArr[117] = new Array('Benin', 'BJ')
+cRArr[118] = new Array('Bermuda', 'BM')
+cRArr[119] = new Array('Bhutan', 'BT')
+cRArr[120] = new Array('Bolivia', 'BO')
+cRArr[121] = new Array('Bosnia And Herzegovina', 'BA')
+cRArr[122] = new Array('Botswana', 'BW')
+cRArr[123] = new Array('Burkina Faso', 'BF')
+cRArr[124] = new Array('Burundi', 'BI')
+cRArr[125] = new Array('Cape Verde', 'CV')
+cRArr[126] = new Array('Central African Republic', 'CF')
+cRArr[127] = new Array('Chad', 'TD')
+cRArr[128] = new Array('Christmas Island', 'CX')
+cRArr[129] = new Array('Cocos (Keeling) Islands', 'CC')
+cRArr[130] = new Array('Comoros', 'KM')
+cRArr[131] = new Array('Congo Democratic Republic Of', 'CD')
+cRArr[132] = new Array('Cook Islands', 'CK')
+cRArr[133] = new Array('Cote D\'Ivoire', 'CI')
+cRArr[134] = new Array('Cyprus', 'CY')
+cRArr[135] = new Array('Djibouti', 'DJ')
+cRArr[136] = new Array('Dominica', 'DM')
+cRArr[137] = new Array('El Salvador', 'SV')
+cRArr[138] = new Array('Equatorial Guinea', 'GQ')
+cRArr[139] = new Array('Eritrea', 'ER')
+cRArr[140] = new Array('Estonia', 'EE')
+cRArr[141] = new Array('Ethiopia', 'ET')
+cRArr[142] = new Array('Falkland Islands (Malvinas)', 'FK')
+cRArr[143] = new Array('Faroe Islands', 'FO')
+cRArr[144] = new Array('Fiji', 'FJ')
+cRArr[145] = new Array('French Guiana', 'GF')
+cRArr[146] = new Array('French Polynesia', 'PF')
+cRArr[147] = new Array('Gambia', 'GM')
+cRArr[148] = new Array('Ghana', 'GH')
+cRArr[149] = new Array('Gibraltar', 'GI')
+cRArr[150] = new Array('Greenland', 'GL')
+cRArr[151] = new Array('Grenada', 'GD')
+cRArr[152] = new Array('Guadeloupe', 'GP')
+cRArr[153] = new Array('Guam', 'GU')
+cRArr[154] = new Array('Guinea', 'GN')
+cRArr[155] = new Array('Guinea-Bissau', 'GW')
+cRArr[156] = new Array('Guyana', 'GY')
+cRArr[157] = new Array('Haiti', 'HT')
+cRArr[158] = new Array('Honduras', 'HN')
+cRArr[159] = new Array('Iceland', 'IS')
+cRArr[160] = new Array('Kazakhstan', 'KZ')
+cRArr[161] = new Array('Kenya', 'KE')
+cRArr[162] = new Array('Kiribati', 'KI')
+cRArr[163] = new Array('Kyrgyzstan', 'KG')
+cRArr[164] = new Array('Latvia', 'LV')
+cRArr[165] = new Array('Lesotho', 'LS')
+cRArr[166] = new Array('Liberia', 'LR')
+cRArr[167] = new Array('Libyan Arab Jamahiriya', 'LY')
+cRArr[168] = new Array('Liechtenstein', 'LI')
+cRArr[169] = new Array('Lithuania', 'LT')
+cRArr[170] = new Array('Madagascar', 'MG')
+cRArr[171] = new Array('Malawi', 'MW')
+cRArr[172] = new Array('Maldives', 'MV')
+cRArr[173] = new Array('Mali', 'ML')
+cRArr[174] = new Array('Malta', 'MT')
+cRArr[175] = new Array('Marshall Islands', 'MH')
+cRArr[176] = new Array('Martinique', 'MQ')
+cRArr[177] = new Array('Mauritania', 'MR')
+cRArr[178] = new Array('Mauritius', 'MU')
+cRArr[179] = new Array('Mayotte', 'YT')
+cRArr[180] = new Array('Micronesia', 'FM')
+cRArr[181] = new Array('Moldova, Republic Of', 'MD')
+cRArr[182] = new Array('Monaco', 'MC')
+cRArr[183] = new Array('Mongolia', 'MN')
+cRArr[184] = new Array('Montserrat', 'MS')
+cRArr[185] = new Array('Morocco', 'MA')
+cRArr[186] = new Array('Mozambique', 'MZ')
+cRArr[187] = new Array('Myanmar', 'MM')
+cRArr[188] = new Array('Namibia', 'NA')
+cRArr[189] = new Array('Nauru', 'NR')
+cRArr[190] = new Array('Nepal', 'NP')
+cRArr[191] = new Array('New Caledonia', 'NC')
+cRArr[192] = new Array('Nicaragua', 'NI')
+cRArr[193] = new Array('Niger', 'NE')
+cRArr[194] = new Array('Nigeria', 'NG')
+cRArr[195] = new Array('Niue', 'NU')
+cRArr[196] = new Array('Norfolk Island', 'NF')
+cRArr[197] = new Array('Northern Mariana Islands', 'MP')
+cRArr[198] = new Array('Norway', 'NO')
+cRArr[199] = new Array('Oman', 'OM')
+cRArr[200] = new Array('Palau', 'PW')
+cRArr[201] = new Array('Papua New Guinea', 'PG')
+cRArr[202] = new Array('Reunion', 'RE')
+cRArr[203] = new Array('Rwanda', 'RW')
+cRArr[204] = new Array('Saint Kitts And Nevis', 'KN')
+cRArr[205] = new Array('Saint Lucia', 'LC')
+cRArr[206] = new Array('Saint Vincent And The Grenadin', 'VC')
+cRArr[207] = new Array('Samoa', 'WS')
+cRArr[208] = new Array('San Marino', 'SM')
+cRArr[209] = new Array('Sao Tome And Principe', 'ST')
+cRArr[210] = new Array('Senegal', 'SN')
+cRArr[211] = new Array('Seychelles', 'SC')
+cRArr[212] = new Array('Sierra Leone', 'SL')
+cRArr[213] = new Array('Slovakia', 'SK')
+cRArr[214] = new Array('Slovenia', 'SI')
+cRArr[215] = new Array('Solomon Islands', 'SB')
+cRArr[216] = new Array('Somalia', 'SO')
+cRArr[217] = new Array('St. Helena', 'SH')
+cRArr[218] = new Array('St. Pierre And Miquelon', 'PM')
+cRArr[219] = new Array('Sudan', 'SD')
+cRArr[220] = new Array('Suriname', 'SR')
+cRArr[221] = new Array('Swaziland', 'SZ')
+cRArr[222] = new Array('Syrian Arab Republic', 'SY')
+cRArr[223] = new Array('Tajikistan', 'TJ')
+cRArr[224] = new Array('Tanzania', 'TZ')
+cRArr[225] = new Array('Tonga', 'TO')
+cRArr[226] = new Array('Turkmenistan', 'TM')
+cRArr[227] = new Array('Turks And Caicos Islands', 'TC')
+cRArr[228] = new Array('Tuvalu', 'TV')
+cRArr[229] = new Array('Uganda', 'UG')
+cRArr[230] = new Array('Ukrainian Ssr', 'UA')
+cRArr[231] = new Array('United States Minor Outlying I', 'UM')
+cRArr[232] = new Array('Uruguay', 'UY')
+cRArr[233] = new Array('Uzbekistan', 'UZ')
+cRArr[234] = new Array('Vanuatu', 'VU')
+cRArr[235] = new Array('Virgin Islands (British)', 'VG')
+cRArr[236] = new Array('Virgin Islands (U.S.)', 'VI')
+cRArr[237] = new Array('Wallis And Futuna Islands', 'WF')
+cRArr[238] = new Array('Yemen, Republic Of', 'YE')
+cRArr[239] = new Array('Zambia', 'ZM')
+cRArr[240] = new Array('Zimbabwe', 'ZW')
+
+
+
+var rOpArr = new Array();
+rOpArr[0] = new Array('All Options', '');
+rOpArr[1] = new Array('Miles Only', 'MO');
+rOpArr[2] = new Array('Miles plus cash', 'MC');	
+
+//Earn Partner Category / Earn Partner Item
+var partnercArr = new Array();
+var partnerNameArr = new Array();
+
+// "Please select" (Default)
+//partnercArr[0] = new Array('All Award Categories', '');
+
+var partnerCountryArr = new Array();
+partnerCountryArr[0] = new Array('All countries / regions', '');
+//partnerCountryArr[0] = new Array('Please select', '');
+partnerCountryArr[1] = new Array('---------------------', '--');
+partnerCountryArr[2] = new Array('Worldwide', 'ALL');
+
+var partnerCatCountryDisabledArr = new Object();
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+/* Earn Partner Option Generated : Wed Aug 17 02:09:28 GMT+08:00 2016*/
+partnercArr[0] = new Array('Airline Partners', 'AIR')
+/* Partner of Airline Partners*/
+partnerNameArr[0] = new Array();
+partnerNameArr[0][0] = new Array('All Partners', 'ALL')
+partnerNameArr[0][1] = new Array('Aer Lingus', 'Aer Lingus')
+partnerNameArr[0][2] = new Array('Air China', 'Air China')
+partnerNameArr[0][3] = new Array('Air New Zealand', 'Air New Zealand')
+partnerNameArr[0][4] = new Array('Alaska Airlines', 'Alaska Airlines')
+partnerNameArr[0][5] = new Array('American Airlines®', 'American Airlines®')
+partnerNameArr[0][6] = new Array('Bangkok Airways', 'Bangkok Airways')
+partnerNameArr[0][7] = new Array('British Airways', 'British Airways')
+partnerNameArr[0][8] = new Array('Cathay Pacific Airways', 'Cathay Pacific Airways')
+partnerNameArr[0][9] = new Array('China Eastern Airlines', 'China Eastern Airlines')
+partnerNameArr[0][10] = new Array('Dragonair', 'Dragonair')
+partnerNameArr[0][11] = new Array('Finnair', 'Finnair')
+partnerNameArr[0][12] = new Array('Gulf Air', 'Gulf Air')
+partnerNameArr[0][13] = new Array('Iberia', 'Iberia')
+partnerNameArr[0][14] = new Array('Japan Airlines', 'Japan Airlines')
+partnerNameArr[0][15] = new Array('Jet Airways', 'Jet Airways')
+partnerNameArr[0][16] = new Array('LAN', 'LAN')
+partnerNameArr[0][17] = new Array('Malaysia Airlines', 'Malaysia Airlines')
+//Malév Hungarian Airlines does not have any country code specified so hidden
+//Mexicana Airlines does not have any country code specified so hidden
+partnerNameArr[0][18] = new Array('Qantas Airways', 'Qantas Airways')
+partnerNameArr[0][19] = new Array('Qatar Airways', 'Qatar Airways')
+partnerNameArr[0][20] = new Array('Royal Brunei Airlines', 'Royal Brunei Airlines')
+partnerNameArr[0][21] = new Array('Royal Jordanian Airlines', 'Royal Jordanian Airlines')
+partnerNameArr[0][22] = new Array('S7 Airlines', 'S7 Airlines')
+partnerNameArr[0][23] = new Array('SriLankan Airlines', 'SriLankan Airlines')
+partnerNameArr[0][24] = new Array('TAM', 'TAM')
+//US Airways does not have any country code specified so hidden
+//Vietnam Airlines does not have any country code specified so hidden
+partnerNameArr[0][25] = new Array('airberlin', 'airberlin')
+partnercArr[1] = new Array('Finance & Insurance', 'F&I')
+/* Partner of Finance & Insurance*/
+partnerNameArr[1] = new Array();
+partnerNameArr[1][0] = new Array('All Partners', 'ALL')
+partnerNameArr[1][1] = new Array('ANZ', 'ANZ')
+partnerNameArr[1][2] = new Array('AmBank', 'AmBank')
+partnerNameArr[1][3] = new Array('American Express', 'American Express')
+//BANCO NACIONAL ULTRAMARINO, S.A. does not have any country code specified so hidden
+partnerNameArr[1][4] = new Array('BOC Credit Card', 'BOC Credit Card')
+partnerNameArr[1][5] = new Array('Bank Danamon Indonesia', 'Bank Danamon Indonesia')
+//Bank of China does not have any country code specified so hidden
+//Bank of Communications does not have any country code specified so hidden
+//Bank of Shanghai does not have any country code specified so hidden
+partnerNameArr[1][6] = new Array('Bupa Global', 'Bupa Global')
+partnerNameArr[1][7] = new Array('CITIC Loyalty', 'CITIC Loyalty')
+partnerNameArr[1][8] = new Array('CTBC Bank', 'CTBC Bank')
+//Cathay United Bank does not have any country code specified so hidden
+//China Construction Bank (Asia) Corporation Limited does not have any country code specified so hidden
+//China Guangfa Bank does not have any country code specified so hidden
+partnerNameArr[1][9] = new Array('China Merchants Bank', 'China Merchants Bank')
+partnerNameArr[1][10] = new Array('Cigna Hong Kong', 'Cigna Hong Kong')
+partnerNameArr[1][11] = new Array('Citibank', 'Citibank')
+//Citibank <!-- /EXP 30JUN/ --> does not have any country code specified so hidden
+partnerNameArr[1][12] = new Array('DBS Bank', 'DBS Bank')
+partnerNameArr[1][13] = new Array('Diners Club', 'Diners Club')
+partnerNameArr[1][14] = new Array('E.SUN Bank', 'E.SUN Bank')
+//Fubon Bank (Hong Kong) does not have any country code specified so hidden
+//HSBC does not have any country code specified so hidden
+//HSBC<!--/EXP 14JUL/--> does not have any country code specified so hidden
+partnerNameArr[1][15] = new Array('HSBC', 'HSBC')
+partnerNameArr[1][16] = new Array('Hua Nan Bank', 'Hua Nan Bank')
+partnerNameArr[1][17] = new Array('KBank Credit Card', 'KBank Credit Card')
+partnerNameArr[1][18] = new Array('Krungsri Consumer', 'Krungsri Consumer')
+partnerNameArr[1][19] = new Array('Maybank', 'Maybank')
+partnerNameArr[1][20] = new Array('Metrobank Card Corporation', 'Metrobank Card Corporation')
+partnerNameArr[1][21] = new Array('Mitsubishi UFJ NICOS', 'Mitsubishi UFJ NICOS')
+partnerNameArr[1][22] = new Array('NICOS Card', 'NICOS Card')
+//Nanyang Commercial Bank (China) Limited does not have any country code specified so hidden
+//Panin Bank does not have any country code specified so hidden
+partnerNameArr[1][23] = new Array('PermataBank', 'PermataBank')
+partnerNameArr[1][24] = new Array('Ping An Wanlitong', 'Ping An Wanlitong')
+partnerNameArr[1][25] = new Array('QBE Hongkong & Shanghai Insurance', 'QBE Hongkong & Shanghai Insurance')
+//RCBC Bankard does not have any country code specified so hidden
+partnerNameArr[1][26] = new Array('Royal Bank of Canada', 'Royal Bank of Canada')
+partnerNameArr[1][27] = new Array('SRCB', 'SRCB')
+partnerNameArr[1][28] = new Array('Security Bank Corporation', 'Security Bank Corporation')
+//Shanghai Commercial Bank does not have any country code specified so hidden
+partnerNameArr[1][29] = new Array('Standard Chartered Bank', 'Standard Chartered Bank')
+partnerNameArr[1][30] = new Array('Taipei Fubon Bank', 'Taipei Fubon Bank')
+partnerNameArr[1][31] = new Array('Taishin International Bank', 'Taishin International Bank')
+partnerNameArr[1][32] = new Array('The Bank of East Asia', 'The Bank of East Asia')
+//The Shanghai Commercial & Savings Bank does not have any country code specified so hidden
+partnerNameArr[1][33] = new Array('United Overseas Bank', 'United Overseas Bank')
+//Westpac does not have any country code specified so hidden
+//Wing Lung Bank does not have any country code specified so hidden
+partnercArr[2] = new Array('Hotels', 'HOT')
+/* Partner of Hotels*/
+partnerNameArr[2] = new Array();
+partnerNameArr[2][0] = new Array('All Partners', 'ALL')
+//Accor Hotels & Resorts does not have any country code specified so hidden
+partnerNameArr[2][1] = new Array('AccorHotels & Resorts', 'AccorHotels & Resorts')
+partnerNameArr[2][2] = new Array('Best Western Hotels & Resorts', 'Best Western Hotels & Resorts')
+//Caesars does not have any country code specified so hidden
+partnerNameArr[2][3] = new Array('Cathay Hospitality Management', 'Cathay Hospitality Management')
+partnerNameArr[2][4] = new Array('Cosmos Hotels & Resorts', 'Cosmos Hotels & Resorts')
+//DELTA HOTELS AND RESORTS does not have any country code specified so hidden
+//Dusit International does not have any country code specified so hidden
+partnerNameArr[2][5] = new Array('E-DA ROYAL HOTEL', 'E-DA ROYAL HOTEL')
+partnerNameArr[2][6] = new Array('E-DA Skylark Hotel', 'E-DA Skylark Hotel')
+partnerNameArr[2][7] = new Array('eslite hotel', 'eslite hotel')
+partnerNameArr[2][8] = new Array('Fairmont Hotels & Resorts', 'Fairmont Hotels & Resorts')
+partnerNameArr[2][9] = new Array('Formosa Hotel Alliance', 'Formosa Hotel Alliance')
+partnerNameArr[2][10] = new Array('GLORIA HOTEL GROUP', 'GLORIA HOTEL GROUP')
+//Global Hotel Alliance does not have any country code specified so hidden
+partnerNameArr[2][11] = new Array('Grand Coloane Resort, Macau', 'Grand Coloane Resort, Macau')
+partnerNameArr[2][12] = new Array('Grand Lapa Macau', 'Grand Lapa Macau')
+partnerNameArr[2][13] = new Array('Harbour Plaza Hotels & Resorts', 'Harbour Plaza Hotels & Resorts')
+partnerNameArr[2][14] = new Array('Hilton Worldwide', 'Hilton Worldwide')
+partnerNameArr[2][15] = new Array('Home Hotel', 'Home Hotel')
+partnerNameArr[2][16] = new Array('Hotel JAL City', 'Hotel JAL City')
+partnerNameArr[2][17] = new Array('Hotel Rêve', 'Hotel Rêve')
+partnerNameArr[2][18] = new Array('Hotel Éclat Taipei', 'Hotel Éclat Taipei')
+partnerNameArr[2][19] = new Array('Hotelday+', 'Hotelday+')
+partnerNameArr[2][20] = new Array('Humble House Taipei', 'Humble House Taipei')
+partnerNameArr[2][21] = new Array('Hyatt Hotels & Resorts™', 'Hyatt Hotels & Resorts™')
+partnerNameArr[2][22] = new Array('InterContinental<sup>®</sup> Hotels Group', 'InterContinental<sup>®</sup> Hotels Group')
+partnerNameArr[2][23] = new Array('Jinling Hotels & Resorts', 'Jinling Hotels & Resorts')
+//Jumeirah Hotels & Resorts does not have any country code specified so hidden
+partnerNameArr[2][24] = new Array('Landis Hotels & Resorts', 'Landis Hotels & Resorts')
+partnerNameArr[2][25] = new Array('Langham Hospitality Group', 'Langham Hospitality Group')
+partnerNameArr[2][26] = new Array('Lotte Hotels & Resorts', 'Lotte Hotels & Resorts')
+partnerNameArr[2][27] = new Array('MDW Consulting Inc.', 'MDW Consulting Inc.')
+partnerNameArr[2][28] = new Array('Mandarin Oriental Hotel Group', 'Mandarin Oriental Hotel Group')
+//Marco Polo Hotels does not have any country code specified so hidden
+partnerNameArr[2][29] = new Array('Marco Polo Hotels', 'Marco Polo Hotels')
+partnerNameArr[2][30] = new Array('Marriott® International', 'Marriott® International')
+partnerNameArr[2][31] = new Array('Meritus Hotels and Resorts', 'Meritus Hotels and Resorts')
+partnerNameArr[2][32] = new Array('Millennium Hotels and Resorts', 'Millennium Hotels and Resorts')
+partnerNameArr[2][33] = new Array('Minor Hotel Group', 'Minor Hotel Group')
+partnerNameArr[2][34] = new Array('Miramar Hotel Group (Taiwan)', 'Miramar Hotel Group (Taiwan)')
+partnerNameArr[2][35] = new Array('New Century Hotels & Resorts', 'New Century Hotels & Resorts')
+//New Otani Hotels does not have any country code specified so hidden
+partnerNameArr[2][36] = new Array('New World Hotels & Resorts', 'New World Hotels & Resorts')
+partnerNameArr[2][37] = new Array('Nikko Hotels International', 'Nikko Hotels International')
+partnerNameArr[2][38] = new Array('Okura Hotels & Resorts', 'Okura Hotels & Resorts')
+partnerNameArr[2][39] = new Array('PARKROYAL Hotels & Resorts', 'PARKROYAL Hotels & Resorts')
+partnerNameArr[2][40] = new Array('Pan Pacific Hotels and Resorts', 'Pan Pacific Hotels and Resorts')
+partnerNameArr[2][41] = new Array('Park Plaza® Hotels & Resorts', 'Park Plaza® Hotels & Resorts')
+partnerNameArr[2][42] = new Array('Preferred Hotels & Resorts', 'Preferred Hotels & Resorts')
+partnerNameArr[2][43] = new Array('Radisson Hotels & Resorts', 'Radisson Hotels & Resorts')
+partnerNameArr[2][44] = new Array('Raffles Hotels & Resorts', 'Raffles Hotels & Resorts')
+partnerNameArr[2][45] = new Array('RedDot Hotel & Culture', 'RedDot Hotel & Culture')
+partnerNameArr[2][46] = new Array('Regal Hotels International Limited', 'Regal Hotels International Limited')
+partnerNameArr[2][47] = new Array('Regent Hotels & Resorts', 'Regent Hotels & Resorts')
+partnerNameArr[2][48] = new Array('Rosewood Hotels & Resorts<sup>®</sup>', 'Rosewood Hotels & Resorts<sup>®</sup>')
+partnerNameArr[2][49] = new Array('Shanghai Jin Jiang International Hotels (Group) Company Limited', 'Shanghai Jin Jiang International Hotels (Group) Company Limited')
+partnerNameArr[2][50] = new Array('Shangri-La Hotels and Resorts', 'Shangri-La Hotels and Resorts')
+partnerNameArr[2][51] = new Array('Sino Hotels', 'Sino Hotels')
+partnerNameArr[2][52] = new Array('Small Luxury Hotels of the World™', 'Small Luxury Hotels of the World™')
+partnerNameArr[2][53] = new Array('Starwood Hotels & Resorts Worldwide', 'Starwood Hotels & Resorts Worldwide')
+partnerNameArr[2][54] = new Array('Swire Hotels', 'Swire Hotels')
+partnerNameArr[2][55] = new Array('Swissôtel Hotels & Resorts', 'Swissôtel Hotels & Resorts')
+partnerNameArr[2][56] = new Array('Taipei Fullerton Hotel', 'Taipei Fullerton Hotel')
+partnerNameArr[2][57] = new Array('Taj Hotels Resorts and Palaces', 'Taj Hotels Resorts and Palaces')
+partnerNameArr[2][58] = new Array('The Ascott Limited', 'The Ascott Limited')
+partnerNameArr[2][59] = new Array('The Peninsula Hotels', 'The Peninsula Hotels')
+partnerNameArr[2][60] = new Array('The Ritz-Carlton®', 'The Ritz-Carlton®')
+partnerNameArr[2][61] = new Array('The Sherwood Taipei', 'The Sherwood Taipei')
+//Tokyu Hotels does not have any country code specified so hidden
+partnerNameArr[2][62] = new Array('WORLDHOTELS', 'WORLDHOTELS')
+partnerNameArr[2][63] = new Array('Wanda Hotels & Resorts', 'Wanda Hotels & Resorts')
+partnerNameArr[2][64] = new Array('Wonstar Hotel', 'Wonstar Hotel')
+partnercArr[3] = new Array('Telecoms', 'TEL')
+/* Partner of Telecoms*/
+partnerNameArr[3] = new Array();
+partnerNameArr[3][0] = new Array('All Partners', 'ALL')
+//1O1O does not have any country code specified so hidden
+//CSL Mobile Limited does not have any country code specified so hidden
+//Globe Telecom does not have any country code specified so hidden
+//NETVIGATOR does not have any country code specified so hidden
+//PCCW-HKT mobile service does not have any country code specified so hidden
+partnerNameArr[3][1] = new Array('The Club of HKT', 'The Club of HKT')
+//Travelling Connect does not have any country code specified so hidden
+partnercArr[4] = new Array('Cars & Transport', 'C&T')
+/* Partner of Cars & Transport*/
+partnerNameArr[4] = new Array();
+partnerNameArr[4][0] = new Array('All Partners', 'ALL')
+partnerNameArr[4][1] = new Array('Airport Express', 'Airport Express')
+partnerNameArr[4][2] = new Array('Alamo Rent A Car & National Car Rental', 'Alamo Rent A Car & National Car Rental')
+partnerNameArr[4][3] = new Array('Avis', 'Avis')
+partnerNameArr[4][4] = new Array('conxxe', 'conxxe')
+partnerNameArr[4][5] = new Array('Crown Motors', 'Crown Motors')
+partnerNameArr[4][6] = new Array('Esso', 'Esso')
+partnerNameArr[4][7] = new Array('Europcar', 'Europcar')
+//Gama Aviation does not have any country code specified so hidden
+partnerNameArr[4][8] = new Array('HERTZ', 'HERTZ')
+partnerNameArr[4][9] = new Array('Mercedes-Benz Financial Services Hong Kong Ltd', 'Mercedes-Benz Financial Services Hong Kong Ltd')
+//Petro-Canada does not have any country code specified so hidden
+partnerNameArr[4][10] = new Array('Rentalcars.com', 'Rentalcars.com')
+partnerNameArr[4][11] = new Array('Rideways', 'Rideways')
+partnerNameArr[4][12] = new Array('Shanghai Jinjiang Automobile Service Co., Ltd.', 'Shanghai Jinjiang Automobile Service Co., Ltd.')
+partnerNameArr[4][13] = new Array('Sixt', 'Sixt')
+//Swire Motors does not have any country code specified so hidden
+partnerNameArr[4][14] = new Array('TurboJET', 'TurboJET')
+partnerNameArr[4][15] = new Array('Xin Kang Heng Holdings Limited', 'Xin Kang Heng Holdings Limited')
+partnercArr[5] = new Array('Retail', 'RET')
+/* Partner of Retail*/
+partnerNameArr[5] = new Array();
+partnerNameArr[5][0] = new Array('All Partners', 'ALL')
+partnerNameArr[5][1] = new Array('7-ELEVEN', '7-ELEVEN')
+partnerNameArr[5][2] = new Array('A for Apple®', 'A for Apple®')
+partnerNameArr[5][3] = new Array('Aerosoles', 'Aerosoles')
+//agnès b. FLEURISTE does not have any country code specified so hidden
+partnerNameArr[5][4] = new Array('Asia Miles iShop', 'Asia Miles iShop')
+//B&W Bowers & Wilkins does not have any country code specified so hidden
+//BEYORG™｜Beyond Organic does not have any country code specified so hidden
+//Beauty Nest does not have any country code specified so hidden
+//Berry Bros. & Rudd does not have any country code specified so hidden
+//Business Today does not have any country code specified so hidden
+//Capelli Hair Salon does not have any country code specified so hidden
+partnerNameArr[5][5] = new Array('Cathay Pacific Inflight Sales Programme – Discover the Shop', 'Cathay Pacific Inflight Sales Programme – Discover the Shop')
+//<i>Chic Outlet Shopping<sup>®</sup></i> does not have any country code specified so hidden
+//City of Dreams does not have any country code specified so hidden
+partnerNameArr[5][6] = new Array('Clarins', 'Clarins')
+partnerNameArr[5][7] = new Array('Columbia Sportswear Company', 'Columbia Sportswear Company')
+//Crate and Barrel does not have any country code specified so hidden
+//Ctrip does not have any country code specified so hidden
+partnerNameArr[5][8] = new Array('DELSEY', 'DELSEY')
+//DFS does not have any country code specified so hidden
+partnerNameArr[5][9] = new Array('DG Lifestyle Store', 'DG Lifestyle Store')
+partnerNameArr[5][10] = new Array('Deli Delight', 'Deli Delight')
+partnerNameArr[5][11] = new Array('DimBuy.com Company Limited', 'DimBuy.com Company Limited')
+partnerNameArr[5][12] = new Array('Dragonair Inflight Sales – emporium', 'Dragonair Inflight Sales – emporium')
+//E-DA Outlet Mall does not have any country code specified so hidden
+partnerNameArr[5][13] = new Array('ELEMENTS', 'ELEMENTS')
+//Elemis does not have any country code specified so hidden
+//Financial Times <!--/EXP 31JUL09/--> does not have any country code specified so hidden
+//Financial Times does not have any country code specified so hidden
+//Forbes Asia does not have any country code specified so hidden
+//Guerlain does not have any country code specified so hidden
+//HAPPY GO does not have any country code specified so hidden
+//HP Hong Kong does not have any country code specified so hidden
+//Jiu Zhen Nan Taiwan Pastry does not have any country code specified so hidden
+partnerNameArr[5][14] = new Array('Laithwaites Direct Wines', 'Laithwaites Direct Wines')
+partnerNameArr[5][15] = new Array('MTM', 'MTM')
+partnerNameArr[5][16] = new Array('MoneyBack', 'MoneyBack')
+//NIKKEI BUSINESS does not have any country code specified so hidden
+//Nautica does not have any country code specified so hidden
+partnerNameArr[5][17] = new Array('NetMile', 'NetMile')
+partnerNameArr[5][18] = new Array('Oregon Scientific', 'Oregon Scientific')
+partnerNameArr[5][19] = new Array('Organic Plus', 'Organic Plus')
+//Ponti Wine Cellars does not have any country code specified so hidden
+partnerNameArr[5][20] = new Array('Reebonz.com.hk', 'Reebonz.com.hk')
+partnerNameArr[5][21] = new Array('Rockport', 'Rockport')
+partnerNameArr[5][22] = new Array('Royal Supermarket', 'Royal Supermarket')
+partnerNameArr[5][23] = new Array('Royal Thai Spa', 'Royal Thai Spa')
+//SM Advantage does not have any country code specified so hidden
+partnerNameArr[5][24] = new Array('Samsonite', 'Samsonite')
+//Sasa.com does not have any country code specified so hidden
+//Sense of Touch does not have any country code specified so hidden
+//Skypoints does not have any country code specified so hidden
+//South China Morning Post does not have any country code specified so hidden
+//Spaforlife does not have any country code specified so hidden
+partnerNameArr[5][25] = new Array('TSL Jewellery', 'TSL Jewellery')
+partnerNameArr[5][26] = new Array('The Economist', 'The Economist')
+//The Story of Jade does not have any country code specified so hidden
+//The Wall Street Journal Asia Edition does not have any country code specified so hidden
+//The Wicker Express® does not have any country code specified so hidden
+partnerNameArr[5][27] = new Array('The Wine Society of India', 'The Wine Society of India')
+partnerNameArr[5][28] = new Array('Vogue Laundry', 'Vogue Laundry')
+//absolute spa group does not have any country code specified so hidden
+//terre d’Oc does not have any country code specified so hidden
+partnercArr[6] = new Array('Dining & Banquets', 'DIN')
+/* Partner of Dining & Banquets*/
+partnerNameArr[6] = new Array();
+partnerNameArr[6][0] = new Array('All Partners', 'ALL')
+partnercArr[7] = new Array('Travel & Leisure', 'T&L')
+/* Partner of Travel & Leisure*/
+partnerNameArr[7] = new Array();
+partnerNameArr[7][0] = new Array('All Partners', 'ALL')
+//AJ Hackett Macau Tower does not have any country code specified so hidden
+//Agoda.com does not have any country code specified so hidden
+//Cartoon Network Amazone Water Park does not have any country code specified so hidden
+//Cathay Holidays Limited does not have any country code specified so hidden
+//Ctrip does not have any country code specified so hidden
+//Diving Best Resort – Sanya Diving Technical Training Center does not have any country code specified so hidden
+//DragonPass Company Limited Guangzhou does not have any country code specified so hidden
+//E-DA Theme Park does not have any country code specified so hidden
+partnerNameArr[7][1] = new Array('Expedia', 'Expedia')
+partnerNameArr[7][2] = new Array('HRS (Hotel Reservation Service)', 'HRS (Hotel Reservation Service)')
+//Hainan Qie Xing Qie Zhenxi Car Rental Limited does not have any country code specified so hidden
+//Heliservices does not have any country code specified so hidden
+//Hotels.com does not have any country code specified so hidden
+partnerNameArr[7][3] = new Array('Kaligo.com', 'Kaligo.com')
+partnerNameArr[7][4] = new Array('Kok Thai Citizens Travel Services Limited', 'Kok Thai Citizens Travel Services Limited')
+partnerNameArr[7][5] = new Array('Macau Golf & Country Club', 'Macau Golf & Country Club')
+//mamahome does not have any country code specified so hidden
+//Mangocity.com does not have any country code specified so hidden
+partnerNameArr[7][6] = new Array('Mission Hills', 'Mission Hills')
+partnerNameArr[7][7] = new Array('Ngong Ping 360', 'Ngong Ping 360')
+//Plaza Premium Lounge does not have any country code specified so hidden
+partnerNameArr[7][8] = new Array('PointsHound.com', 'PointsHound.com')
+//RedMR does not have any country code specified so hidden
+//Rocketmiles does not have any country code specified so hidden
+//The Sanya Wood Yacht Services Limited does not have any country code specified so hidden
+//Travelex does not have any country code specified so hidden
+//TripAdvisor does not have any country code specified so hidden
+//Tripitta does not have any country code specified so hidden
+partnercArr[8] = new Array('Professional Services', 'PRO')
+/* Partner of Professional Services*/
+partnerNameArr[8] = new Array();
+partnerNameArr[8][0] = new Array('All Partners', 'ALL')
+//AmMed Cancer Center does not have any country code specified so hidden
+partnerNameArr[8][1] = new Array('Anzac Realty', 'Anzac Realty')
+//HealthCheQ does not have any country code specified so hidden
+partnerNameArr[8][2] = new Array('Hong Kong Trade Development Council', 'Hong Kong Trade Development Council')
+partnerNameArr[8][3] = new Array('Hongkong Storage', 'Hongkong Storage')
+partnerNameArr[8][4] = new Array('Langham Hospitality Group (Meeting service)', 'Langham Hospitality Group (Meeting service)')
+//Links Moving does not have any country code specified so hidden
+partnerNameArr[8][5] = new Array('Qualigenics Medical', 'Qualigenics Medical')
+partnerNameArr[8][6] = new Array('Quality HealthCare', 'Quality HealthCare')
+partnerNameArr[8][7] = new Array('Regal Hotels International (Meeting services)', 'Regal Hotels International (Meeting services)')
+partnerNameArr[8][8] = new Array('Regus', 'Regus')
+//Sino Group of Hotels (Meeting Services) does not have any country code specified so hidden
+partnerNameArr[8][9] = new Array('The Kinnet', 'The Kinnet')
+//The Park Lane Hong Kong (Meeting service) does not have any country code specified so hidden
+partnerNameArr[8][10] = new Array('United Kingdom Education Advisory Service', 'United Kingdom Education Advisory Service')
+partnerNameArr[8][11] = new Array('Venture Studios (HK) Limited', 'Venture Studios (HK) Limited')
+/* Earn Partner Country Option Generated : Wed Aug 17 02:09:28 GMT+08:00 2016*/
+partnerCountryArr[3] = new Array('---------------------', '--')
+partnerCountryArr[4] = new Array('Canada', 'CA')
+partnerCountryArr[5] = new Array('China', 'CN')
+partnerCountryArr[6] = new Array('Taiwan', 'TW')
+partnerCountryArr[7] = new Array('United States', 'US')
+partnerCountryArr[8] = new Array('Hong Kong', 'HK')
+partnerCountryArr[9] = new Array('--- Asia Pacific ---', 'ASIA_PAC')
+partnerCountryArr[10] = new Array('Australia', 'AU')
+partnerCountryArr[11] = new Array('Bangladesh', 'BD')
+partnerCountryArr[12] = new Array('Brunei', 'BN')
+partnerCountryArr[13] = new Array('Cambodia', 'KH')
+partnerCountryArr[14] = new Array('China', 'CN')
+partnerCountryArr[15] = new Array('Hong Kong', 'HK')
+partnerCountryArr[16] = new Array('India', 'IN')
+partnerCountryArr[17] = new Array('Indonesia', 'ID')
+partnerCountryArr[18] = new Array('Japan', 'JP')
+partnerCountryArr[19] = new Array('Korea, Democratic People\'s Rep', 'KP')
+partnerCountryArr[20] = new Array('Korea, Republic Of', 'KR')
+partnerCountryArr[21] = new Array('Macau', 'MO')
+partnerCountryArr[22] = new Array('Malaysia', 'MY')
+partnerCountryArr[23] = new Array('New Zealand', 'NZ')
+partnerCountryArr[24] = new Array('Pakistan', 'PK')
+partnerCountryArr[25] = new Array('Philippines', 'PH')
+partnerCountryArr[26] = new Array('Singapore', 'SG')
+partnerCountryArr[27] = new Array('Sri Lanka', 'LK')
+partnerCountryArr[28] = new Array('Taiwan', 'TW')
+partnerCountryArr[29] = new Array('Thailand', 'TH')
+partnerCountryArr[30] = new Array('Vietnam', 'VN')
+partnerCountryArr[31] = new Array('--- Europe ---', 'EUROPE')
+partnerCountryArr[32] = new Array('Germany', 'DE')
+partnerCountryArr[33] = new Array('Italy', 'IT')
+partnerCountryArr[34] = new Array('--- Middle East ---', 'MID_EAST')
+partnerCountryArr[35] = new Array('Egypt', 'EG')
+partnerCountryArr[36] = new Array('Jordan', 'JO')
+partnerCountryArr[37] = new Array('Kuwait', 'KW')
+partnerCountryArr[38] = new Array('Lebanon', 'LB')
+partnerCountryArr[39] = new Array('Qatar', 'QA')
+partnerCountryArr[40] = new Array('Saudi Arabia', 'SA')
+partnerCountryArr[41] = new Array('United Arab Emirates', 'AE')
+partnerCountryArr[42] = new Array('--- North America ---', 'N_AMERICA')
+partnerCountryArr[43] = new Array('Canada', 'CA')
+partnerCountryArr[44] = new Array('United States', 'US')
+partnerCountryArr[45] = new Array('--- Other ---', 'OTHERS')
+partnerCountryArr[46] = new Array('Bahrain', 'BH')
+partnerCountryArr[47] = new Array('Fiji', 'FJ')
+partnerCountryArr[48] = new Array('Mongolia', 'MN')
+partnerCountryArr[49] = new Array('Myanmar', 'MM')
+partnerCountryArr[50] = new Array('Nepal', 'NP')
+partnerCountryArr[51] = new Array('Oman', 'OM')
+partnerCountryArr[52] = new Array('Papua New Guinea', 'PG')
+partnerCountryArr[53] = new Array('Syrian Arab Republic', 'SY')
+partnerCountryArr[54] = new Array('Tonga', 'TO')
+partnerCountryArr[55] = new Array('Yemen, Republic Of', 'YE')
+/* Earn Partner Disabled Country Option Generated : Wed Aug 17 02:09:28 GMT+08:00 2016*/
+partnerCatCountryDisabledArr['AIR'] = 'AIR';
+partnerCatCountryDisabledArr['C&T'] = 'C&T';
+partnerCatCountryDisabledArr['HOT'] = 'HOT';
+partnerCatCountryDisabledArr['PRO'] = 'PRO';
+
+
+
+
+var diningCityDistrictOptionArr = new Array();
+var diningCityOptionArr = new Array();
+var diningCuisineOptionArr = new Array();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	diningCityOptionArr[0] = new Array('Bali', 'Bali');
+			
+	diningCityOptionArr[1] = new Array('Bangkok', 'Bangkok');
+			
+	diningCityOptionArr[2] = new Array('Beijing', 'Beijing');
+			
+	diningCityOptionArr[3] = new Array('Cebu', 'Cebu');
+			
+	diningCityOptionArr[4] = new Array('ChengDu', 'Chengdu');
+			
+	diningCityOptionArr[5] = new Array('Haikou', 'Haikou');
+			
+	diningCityOptionArr[6] = new Array('Hanoi', 'Hanoi');
+			
+	diningCityOptionArr[7] = new Array('Ho Chi Minh City', 'Ho Chi Minh City');
+			
+	diningCityOptionArr[8] = new Array('Hong Kong', 'Hong Kong');
+			
+	diningCityOptionArr[9] = new Array('Hsinchu', 'Hsinchu');
+			
+	diningCityOptionArr[10] = new Array('Jakarta', 'Jakarta');
+			
+	diningCityOptionArr[11] = new Array('Jiangsu', 'Jiangsu');
+			
+	diningCityOptionArr[12] = new Array('Kaohsiung', 'Kaohsiung');
+			
+	diningCityOptionArr[13] = new Array('Macau', 'Macau');
+			
+	diningCityOptionArr[14] = new Array('Manila', 'Manila');
+			
+	diningCityOptionArr[15] = new Array('Ningbo', 'Ningbo');
+			
+	diningCityOptionArr[16] = new Array('Qingdao', 'Qingdao');
+			
+	diningCityOptionArr[17] = new Array('Shanghai', 'Shanghai');
+			
+	diningCityOptionArr[18] = new Array('Shenzhen', 'Shenzhen');
+			
+	diningCityOptionArr[19] = new Array('Singapore', 'Singapore');
+			
+	diningCityOptionArr[20] = new Array('Suzhou', 'Suzhou');
+			
+	diningCityOptionArr[21] = new Array('Sydney', 'Sydney');
+			
+	diningCityOptionArr[22] = new Array('Taichung', 'Taichung');
+			
+	diningCityOptionArr[23] = new Array('Tainan', 'Tainan');
+			
+	diningCityOptionArr[24] = new Array('Taipei', 'Taipei');
+			
+	diningCityOptionArr[25] = new Array('Vancouver', 'Vancouver');
+			
+	diningCityOptionArr[26] = new Array('Wuhan', 'Wuhan');
+			
+	diningCityOptionArr[27] = new Array('Zhongshan', 'Zhongshan');
+			
+	diningCityDistrictOptionArr[0] = new Array();
+	diningCityDistrictOptionArr[0][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[1] = new Array();
+	diningCityDistrictOptionArr[1][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[2] = new Array();
+	diningCityDistrictOptionArr[2][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[3] = new Array();
+	diningCityDistrictOptionArr[3][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[4] = new Array();
+	diningCityDistrictOptionArr[4][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[5] = new Array();
+	diningCityDistrictOptionArr[5][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[6] = new Array();
+	diningCityDistrictOptionArr[6][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[7] = new Array();
+	diningCityDistrictOptionArr[7][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[8] = new Array();
+	diningCityDistrictOptionArr[8][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[8][1] = new Array('Aberdeen', 'Aberdeen');
+					
+	diningCityDistrictOptionArr[8][2] = new Array('Admiralty / Central', 'Admiralty / Central');
+					
+	diningCityDistrictOptionArr[8][3] = new Array('Causeway Bay', 'Causeway Bay');
+					
+	diningCityDistrictOptionArr[8][4] = new Array('Gold Coast', 'Gold Coast');
+					
+	diningCityDistrictOptionArr[8][5] = new Array('Hong Kong International Airport', 'Hong Kong International Airport');
+					
+	diningCityDistrictOptionArr[8][6] = new Array('Hung Hom', 'Hung Hom');
+					
+	diningCityDistrictOptionArr[8][7] = new Array('Kowloon Bay', 'Kowloon Bay');
+					
+	diningCityDistrictOptionArr[8][8] = new Array('Kowloon City', 'Kowloon City');
+					
+	diningCityDistrictOptionArr[8][9] = new Array('Kowloon Tong', 'Kowloon Tong');
+					
+	diningCityDistrictOptionArr[8][10] = new Array('Mongkok', 'Mongkok');
+					
+	diningCityDistrictOptionArr[8][11] = new Array('North Point', 'North Point');
+					
+	diningCityDistrictOptionArr[8][12] = new Array('Quarry Bay', 'Quarry Bay');
+					
+	diningCityDistrictOptionArr[8][13] = new Array('Shatin', 'Shatin');
+					
+	diningCityDistrictOptionArr[8][14] = new Array('Stanley', 'Stanley');
+					
+	diningCityDistrictOptionArr[8][15] = new Array('Tai Koo', 'Tai Koo');
+					
+	diningCityDistrictOptionArr[8][16] = new Array('The Peak', 'The Peak');
+					
+	diningCityDistrictOptionArr[8][17] = new Array('Tsim Sha Tsui', 'Tsim Sha Tsui');
+					
+	diningCityDistrictOptionArr[8][18] = new Array('Wanchai', 'Wanchai');
+					
+	diningCityDistrictOptionArr[9] = new Array();
+	diningCityDistrictOptionArr[9][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[10] = new Array();
+	diningCityDistrictOptionArr[10][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[11] = new Array();
+	diningCityDistrictOptionArr[11][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[12] = new Array();
+	diningCityDistrictOptionArr[12][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[13] = new Array();
+	diningCityDistrictOptionArr[13][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[14] = new Array();
+	diningCityDistrictOptionArr[14][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[15] = new Array();
+	diningCityDistrictOptionArr[15][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[16] = new Array();
+	diningCityDistrictOptionArr[16][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[17] = new Array();
+	diningCityDistrictOptionArr[17][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[18] = new Array();
+	diningCityDistrictOptionArr[18][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[19] = new Array();
+	diningCityDistrictOptionArr[19][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[20] = new Array();
+	diningCityDistrictOptionArr[20][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[21] = new Array();
+	diningCityDistrictOptionArr[21][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[22] = new Array();
+	diningCityDistrictOptionArr[22][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[23] = new Array();
+	diningCityDistrictOptionArr[23][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[24] = new Array();
+	diningCityDistrictOptionArr[24][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[25] = new Array();
+	diningCityDistrictOptionArr[25][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[26] = new Array();
+	diningCityDistrictOptionArr[26][0] = new Array('All', 'ALL');
+		
+	diningCityDistrictOptionArr[27] = new Array();
+	diningCityDistrictOptionArr[27][0] = new Array('All', 'ALL');
+		
+	diningCuisineOptionArr[0] = new Array('All', 'ALL');
+	
+	diningCuisineOptionArr[1] = new Array('American', 'American');
+			
+	diningCuisineOptionArr[2] = new Array('Argentinian', 'Argentinian');
+			
+	diningCuisineOptionArr[3] = new Array('Asian', 'Asian');
+			
+	diningCuisineOptionArr[4] = new Array('Banquets', 'Banquets');
+			
+	diningCuisineOptionArr[5] = new Array('Cantonese', 'Cantonese');
+			
+	diningCuisineOptionArr[6] = new Array('Chinese', 'Chinese');
+			
+	diningCuisineOptionArr[7] = new Array('Continental', 'Continental');
+			
+	diningCuisineOptionArr[8] = new Array('Egyptian', 'Egyptian');
+			
+	diningCuisineOptionArr[9] = new Array('European', 'European');
+			
+	diningCuisineOptionArr[10] = new Array('French', 'French');
+			
+	diningCuisineOptionArr[11] = new Array('German', 'German');
+			
+	diningCuisineOptionArr[12] = new Array('Indian', 'Indian');
+			
+	diningCuisineOptionArr[13] = new Array('International', 'International');
+			
+	diningCuisineOptionArr[14] = new Array('Irish', 'Irish');
+			
+	diningCuisineOptionArr[15] = new Array('Italian', 'Italian');
+			
+	diningCuisineOptionArr[16] = new Array('Japanese', 'Japanese');
+			
+	diningCuisineOptionArr[17] = new Array('Korean', 'Korean');
+			
+	diningCuisineOptionArr[18] = new Array('Mediterranean', 'Mediterranean');
+			
+	diningCuisineOptionArr[19] = new Array('Mexican', 'Mexican');
+			
+	diningCuisineOptionArr[20] = new Array('Middle Eastern', 'Middle Eastern');
+			
+	diningCuisineOptionArr[21] = new Array('Mongolian', 'Mongolian');
+			
+	diningCuisineOptionArr[22] = new Array('Polynesian', 'Polynesian');
+			
+	diningCuisineOptionArr[23] = new Array('Portuguese', 'Portuguese');
+			
+	diningCuisineOptionArr[24] = new Array('Singaporean', 'Singaporean');
+			
+	diningCuisineOptionArr[25] = new Array('Spanish', 'Spanish');
+			
+	diningCuisineOptionArr[26] = new Array('Thai', 'Thai');
+			
+	diningCuisineOptionArr[27] = new Array('Thai and Vietnamese', 'Thai and Vietnamese');
+			
+	diningCuisineOptionArr[28] = new Array('Vietnamese', 'Vietnamese');
+			
+	diningCuisineOptionArr[29] = new Array('Western', 'Western');
+			
+
+//-->
+			

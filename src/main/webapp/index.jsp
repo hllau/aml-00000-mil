@@ -1,0 +1,9 @@
+<html>
+<head>
+    <title>Asia-mile calulator demo</title>
+    <meta http-equiv="refresh" content="0;URL='/demo/am/en/redeem/flightawardfinder.html'" />
+</head>
+<body>
+<h2>Redirecting...</h2>
+</body>
+</html>
