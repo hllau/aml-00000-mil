@@ -9,4 +9,8 @@ setup up
 
 4) run "mvn package" to build
 
-todo: use runtime env variable to setup db connection, current hard coded in .\src\main\webapp\META-INF\context.xml
+5) following env variable would be expected during tomcat startup
+00000_DB_USER_NAME
+00000_DB_PASSWORD
+00000_DB_HOST_NAME
+00000_DB_PORT

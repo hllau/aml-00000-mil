@@ -25,9 +25,14 @@
     <!-- url: The JDBC connection url for connecting to your MySQL database.
          -->
 
-    <Resource name="jdbc/asia_mile_datasource" auth="Container" type="javax.sql.DataSource"
+    <Resource name="jdbc/asia_mile_datasource" auth="Container"
+              type="javax.sql.DataSource"
               maxTotal="100" maxIdle="30" maxWaitMillis="10000"
-              username="demo" password="password" driverClassName="com.mysql.jdbc.Driver"
-              url="jdbc:mysql://localhost:3306/asia_mile"/>
+              username="${00000_DB_USER_NAME??demo}"
+              password="${00000_DB_PASSWORD??password}"
+              driverClassName="com.mysql.jdbc.Driver"
+              factory="com.cx.ng.DynamicTomcatDataSourceFactory"
+              validationQuery="SELECT '1';"
+              url="jdbc:mysql://${00000_DB_HOST_NAME??localhost}:${00000_DB_PORT??3306}/asia_mile?autoReconnectForPools=true&amp;characterEncoding=UTF-8"/>
 
 </Context>
