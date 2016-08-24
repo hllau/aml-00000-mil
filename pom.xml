@@ -99,15 +99,37 @@
 
   <repositories>
     <repository>
+      <id>default</id>
+      <name>maven2</name>
+      <url>http://repo.maven.apache.org/maven2</url>
+    </repository>
+    <repository>
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
 
-      <id>central</id>
+      <id>internal</id>
       <name>libs-release</name>
       <url>http://artifactory.cpaaws.com/artifactory/libs-release</url>
     </repository>
 
   </repositories>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>2.17</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>checkstyle</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
 
 </project>
