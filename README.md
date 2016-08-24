@@ -12,3 +12,29 @@ setup up
 00000_DB_PASSWORD
 00000_DB_HOST_NAME
 00000_DB_PORT
+
+## Docker
+
+(Optional) If there is no MYSQL in place, the following docker command runs a MYSQL server instance and creates a database "nextgen" on startup.
+
+```sh
+$ docker run -d \
+--name temp-mysql \
+-e MYSQL_DATABASE=nextgen \
+-e MYSQL_ROOT_PASSWORD=nextgenroot \
+-e MYSQL_USER=admin \
+-e MYSQL_PASSWORD=nextgen \
+mysql
+```
+
+### Build the docker image with tomcat:8jre
+```sh
+$ ./docker-build.sh
+```
+
+### Execute the docker image
+```sh
+$ ./docker-run.sh
+```
+
+Access the application by visiting http://localhost:8080/demo
