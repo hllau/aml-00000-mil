@@ -5,11 +5,9 @@ setup up
 
 2) unzip scripts/db_data_init.zip, then run scripts/create_table.sql and then insert.sql
 
-3) install 3rd party lib to local mvn by scripts/add_mvn_lib.bat
+3) run "mvn package" to build
 
-4) run "mvn package" to build
-
-5) following env variable would be expected during tomcat startup
+4) following env variable would be expected during tomcat startup
 00000_DB_USER_NAME
 00000_DB_PASSWORD
 00000_DB_HOST_NAME

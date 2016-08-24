@@ -27,7 +27,7 @@ var SectorPanel = React.createClass({
         if(ready){
             this.setState({loading:true});
             jQuery.ajax(
-                buildAjaxRequest("/demo/rest/AsiaMileService/calMilelage/",
+                buildAjaxRequest(this.props.contextPath+"rest/AsiaMileService/calMilelage/",
                     {
                         awardType:this.state.ticketClass.value,
                         sectorList:this.state.sectorList.filter(s=>s.airline!=null).map(s=>{
@@ -102,7 +102,8 @@ var SectorPanel = React.createClass({
 
                             <td>
                             <strong><label >Class *</label></strong><br/>
-                                <SimpleSelect placeholder= "Select Ticket Class"
+                                <SimpleSelect
+                                    placeholder= "Select Ticket Class"
                                               options = {ticketClassList.filter(c=>this.state.ticketType== null?false:c.ticketType_Id == this.state.ticketType.value)}
                                               onValueChange={this.handleTicketClassChange}
                                               value = {this.state.ticketClass}
@@ -111,7 +112,7 @@ var SectorPanel = React.createClass({
                         </tr>
 
                         </table>
-                    {this.state.sectorList.map(s=><SectorSelector sector={s} onChange={this.handleSectorChange.bind(this, s)}/>)}
+                    {this.state.sectorList.map(s=><SectorSelector contextPath={this.props.contextPath} sector={s} onChange={this.handleSectorChange.bind(this, s)}/>)}
 
                     <table width="100%" className="tbl_transparent">
                         <colgroup>

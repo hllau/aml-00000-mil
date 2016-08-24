@@ -43,17 +43,20 @@
       <artifactId>mysql-connector-java</artifactId>
       <version>6.0.3</version>
     </dependency>
-    <dependency>
-      <groupId>com.cathaypacific.icls</groupId>
-      <artifactId>clsUtil</artifactId>
-      <version>1.0.0</version>
-    </dependency>
+
     <dependency>
       <groupId>org.apache.tomcat</groupId>
       <artifactId>tomcat-dbcp</artifactId>
       <version>8.5.4</version>
       <scope>provided</scope>
     </dependency>
+
+    <dependency>
+      <groupId>com.cathaypacific.icls</groupId>
+      <artifactId>clsUtil</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+
     <dependency>
       <groupId>com.cathaypacific.icls</groupId>
       <artifactId>common-logger</artifactId>
@@ -93,5 +96,18 @@
     </dependency>
 
   </dependencies>
+
+  <repositories>
+    <repository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+
+      <id>central</id>
+      <name>libs-release</name>
+      <url>http://artifactory.cpaaws.com/artifactory/libs-release</url>
+    </repository>
+
+  </repositories>
 
 </project>

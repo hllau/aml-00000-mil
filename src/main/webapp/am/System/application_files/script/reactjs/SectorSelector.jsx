@@ -17,7 +17,7 @@ var SectorSelector = React.createClass({
         this.setState(this.getInitialState());
         if(event){
             jQuery.ajax(
-                buildAjaxRequest2("/demo/rest/AsiaMileService/getToAirportList/"+event.value,
+                buildAjaxRequest2(this.props.contextPath+"rest/AsiaMileService/getToAirportList/"+event.value,
                     function (result) {
                         this.setState({toAirportList:
                             airportOptionList.filter(ap=>jQuery.inArray(ap.value,result) != -1)}
@@ -48,7 +48,7 @@ var SectorSelector = React.createClass({
         this.setState(newState);
         if(event){
             jQuery.ajax(
-                buildAjaxRequest2("/demo/rest/AsiaMileService/getCarrierList/"+newSector.from.value+"/"+newSector.to.value,
+                buildAjaxRequest2(this.props.contextPath+"rest/AsiaMileService/getCarrierList/"+newSector.from.value+"/"+newSector.to.value,
                     function (result) {
                         this.setState({airlineList:
                             result.map(
