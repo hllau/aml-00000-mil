@@ -1,0 +1,1 @@
+docker run --rm -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -p 3306:3306 mysql
