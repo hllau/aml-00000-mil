@@ -33,6 +33,6 @@
               driverClassName="com.mysql.jdbc.Driver"
               factory="com.cx.ng.DynamicTomcatDataSourceFactory"
               validationQuery="SELECT '1';"
-              url="jdbc:mysql://${DB_HOST_NAME??localhost}:${DB_PORT??3306}/asia_mile?autoReconnectForPools=true&amp;characterEncoding=UTF-8"/>
+              url="jdbc:mysql://${DB_HOST_NAME??localhost}:${DB_PORT??3306}/asia_mile?autoReconnectForPools=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC"/>
 
 </Context>
