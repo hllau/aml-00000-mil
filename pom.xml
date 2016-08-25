@@ -60,7 +60,7 @@
     <dependency>
       <groupId>com.cathaypacific.icls</groupId>
       <artifactId>common-logger</artifactId>
-      <version>2014.10.24</version>
+      <version>1.0.0</version>
     </dependency>
 
     <dependency>
